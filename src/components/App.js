@@ -9,10 +9,21 @@ const App = () => {
 
     const [contacts, setContacts] = useState([])
 
+
     const addContactHandler = (contact) =>{
         // console.log(contact);
         setContacts([...contacts, {id: uuid(), ...contact}])
     }
+
+    
+    const removeContactHandler = (id) => {
+        const newContactList = contacts.filter((contact)=>{
+            return contact.id !== id;
+        })
+
+        setContacts(newContactList)    
+    }
+
     // const contacts = [
     //     {
     //         id:1,
@@ -40,7 +51,7 @@ const App = () => {
 
             <Header />
             <AddContact addContactHandler={addContactHandler}/>
-            <ContactList contacts={contacts} />
+            <ContactList contacts={contacts} getContactId={removeContactHandler}/>
         </div>
     )
 }

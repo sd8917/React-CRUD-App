@@ -25,7 +25,11 @@ const ContactCard = (props) => {
                     style={{
                         color: "red",
                         marginTop: "10px"
-                    }} >
+                    }} 
+                    onClick={()=>{
+                        props.clickHandler(id)
+                    }}
+                    >
 
                 </i>
             </div>
